@@ -4,20 +4,21 @@ import "modern-normalize";
 import ContactForm from "./ContactForm/ContactForm"
 import ContactList from "./ContactList/ContactList"
 import SearchBar from './SearchBar/SearchBar';
+import { useDispatch } from 'react-redux';
+import { apiGetContacts } from '../redux/contactsOps';
+import { useEffect } from 'react';
+
 
 
 
 
 const App = () => {
-  // const [contactList, setContactList] = useState(() => {
-  //   const savedContacts = localStorage.getItem('contacts');
-  //   return savedContacts ? JSON.parse(savedContacts) : [];
-  // });
 
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contactList));
-  // }, [contactList]);
+  useEffect(() => {
+    dispatch(apiGetContacts())
+  }, [dispatch]);
 
   return (
     <div className='mainContainer'>

@@ -1,8 +1,9 @@
 import css from "./Contact.module.css"
 import { FaUser } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
-import { deleteContact } from '../../redux/contactsSlice';
 import { useDispatch } from "react-redux";
+import { apiDeleteContact } from "../../redux/contactsOps";
+
 
 const Contact = ({ contact }) => {
 
@@ -10,7 +11,7 @@ const Contact = ({ contact }) => {
 
     const handleDeleteContact = () => {
 
-        dispatch(deleteContact(contact.id))
+        dispatch(apiDeleteContact(contact.id))
 
     }
 
